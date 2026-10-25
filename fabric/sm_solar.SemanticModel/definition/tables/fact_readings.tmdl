@@ -1,0 +1,174 @@
+table fact_readings
+	lineageTag: fc250ba3-0bfe-4a16-92cf-a82454ca56eb
+	sourceLineageTag: [gold].[fact_readings]
+
+	measure 'Valid %' = DIVIDE(CALCULATE(COUNTROWS(fact_readings), fact_readings[is_valid] = TRUE()), COUNTROWS(fact_readings))
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: be71009a-84aa-49ad-a9b2-7225fe90dc5d
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+		changedProperty = IsHidden
+
+	measure Readings = COUNTROWS(fact_readings)
+		formatString: 0
+		lineageTag: 0ab1c12b-a1c7-4bcf-9b10-37cffdd1c5d9
+
+		changedProperty = Name
+
+	column date_key
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 01db3459-5a75-4f2a-8a80-db5920b81a13
+		sourceLineageTag: date_key
+		summarizeBy: none
+		sourceColumn: date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column device_hash_id
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: b1c62e5e-8fb1-479b-b8b0-3cc899fef7e2
+		sourceLineageTag: device_hash_id
+		summarizeBy: none
+		sourceColumn: device_hash_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column station_hash_id
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 0d873357-40fa-4e5c-8f36-448251ee21b4
+		sourceLineageTag: station_hash_id
+		summarizeBy: none
+		sourceColumn: station_hash_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column canonical_state_id
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 38758a2b-e2cf-471f-b70f-3840010ee62d
+		sourceLineageTag: canonical_state_id
+		summarizeBy: none
+		sourceColumn: canonical_state_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column ts
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: fef75107-0a74-4b9f-983a-6d678d06e806
+		sourceLineageTag: ts
+		summarizeBy: none
+		sourceColumn: ts
+
+		annotation SummarizationSetBy = Automatic
+
+	column ac_power_kw
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 92524768-7fd1-4481-996a-aa7344f0b8f6
+		sourceLineageTag: ac_power_kw
+		summarizeBy: sum
+		sourceColumn: ac_power_kw
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column dc_power_kw
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 3b1da81f-4433-4db2-8c7c-80cc9b97f029
+		sourceLineageTag: dc_power_kw
+		summarizeBy: sum
+		sourceColumn: dc_power_kw
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column efficiency_pct
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 658282de-b1a7-43ce-b68b-28f4a0f0ddec
+		sourceLineageTag: efficiency_pct
+		summarizeBy: sum
+		sourceColumn: efficiency_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column energy_today_kwh
+		dataType: double
+		sourceProviderType: float
+		lineageTag: c761223d-1860-466c-8103-43ff798f67f8
+		sourceLineageTag: energy_today_kwh
+		summarizeBy: sum
+		sourceColumn: energy_today_kwh
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column energy_total_kwh
+		dataType: double
+		sourceProviderType: float
+		lineageTag: cc42f156-ee22-4b6c-b364-fe2f3cd2aa52
+		sourceLineageTag: energy_total_kwh
+		summarizeBy: sum
+		sourceColumn: energy_total_kwh
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column temperature_c
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 9e7a0051-b297-49c2-b550-16931c191564
+		sourceLineageTag: temperature_c
+		summarizeBy: sum
+		sourceColumn: temperature_c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column is_valid
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		sourceProviderType: bit
+		lineageTag: c4744612-39fb-43ae-8fe8-962e34f71cfc
+		sourceLineageTag: is_valid
+		summarizeBy: none
+		sourceColumn: is_valid
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_file
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 1970acb7-b7dd-4186-bfa8-60dc44d74433
+		sourceLineageTag: source_file
+		summarizeBy: none
+		sourceColumn: source_file
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_readings = entity
+		mode: directLake
+		source
+			entityName: fact_readings
+			schemaName: gold
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

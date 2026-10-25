@@ -1,0 +1,74 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "9fdfecca9c8129ca8675",
+  "position": {
+    "x": 0,
+    "y": 347.47826086956525,
+    "z": 1000,
+    "height": 385.04347826086962,
+    "width": 280.17391304347831,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_readings"
+                    }
+                  },
+                  "Property": "Valid %"
+                }
+              },
+              "queryRef": "fact_readings.Valid %",
+              "nativeQueryRef": "Valid %"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "fact_readings"
+                  }
+                },
+                "Property": "Valid %"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "21a334e0f1c4d932692f",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fact_readings"
+              }
+            },
+            "Property": "Valid %"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

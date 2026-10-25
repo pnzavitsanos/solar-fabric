@@ -1,0 +1,193 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "7000bbd98c345106759f",
+  "position": {
+    "x": 0,
+    "y": 540,
+    "z": 1,
+    "height": 520,
+    "width": 1920,
+    "tabOrder": 1
+  },
+  "visual": {
+    "visualType": "scatterChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_station"
+                    }
+                  },
+                  "Property": "name"
+                }
+              },
+              "queryRef": "dim_station.name",
+              "nativeQueryRef": "name",
+              "active": true
+            }
+          ]
+        },
+        "X": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_daily_energy"
+                    }
+                  },
+                  "Property": "Installed kW"
+                }
+              },
+              "queryRef": "fact_daily_energy.Installed kW",
+              "nativeQueryRef": "Installed kW",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_daily_energy"
+                    }
+                  },
+                  "Property": "Yield (kWh/kW/day)"
+                }
+              },
+              "queryRef": "fact_daily_energy.Yield (kWh/kW/day)",
+              "nativeQueryRef": "Yield (kWh/kW/day)"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "referenceLine": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "displayName": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Average line 1'"
+                }
+              }
+            },
+            "value": {
+              "expr": {
+                "Aggregation": {
+                  "Expression": {
+                    "SelectRef": {
+                      "ExpressionName": "fact_daily_energy.Yield (kWh/kW/day)"
+                    }
+                  },
+                  "Function": 1
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "31D"
+                }
+              }
+            },
+            "lineColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 9,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "style": {
+              "expr": {
+                "Literal": {
+                  "Value": "'solid'"
+                }
+              }
+            },
+            "dataLabelShow": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "fact_daily_energy.Yield (kWh/kW/day)",
+            "id": "1"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "2e961018a9d1048db946",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_station"
+              }
+            },
+            "Property": "name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "a6faffd930f0589f47b8",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fact_daily_energy"
+              }
+            },
+            "Property": "Installed kW"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "b058c29f343091e79a89",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fact_daily_energy"
+              }
+            },
+            "Property": "Yield (kWh/kW/day)"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

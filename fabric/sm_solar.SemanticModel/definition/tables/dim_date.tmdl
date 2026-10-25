@@ -1,0 +1,93 @@
+table dim_date
+	lineageTag: 890ff619-30fa-41b4-89df-42d2ea1d615e
+	sourceLineageTag: [gold].[dim_date]
+	dataCategory: Time
+
+	column date
+		dataType: dateTime
+		isKey
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 748d25c7-5574-420b-959c-882cc4788335
+		sourceLineageTag: date
+		summarizeBy: none
+		sourceColumn: date
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_key
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 9e6ed06d-e7ef-460c-9358-6d79055f94e4
+		sourceLineageTag: date_key
+		summarizeBy: none
+		sourceColumn: date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column year
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: c15abf95-c92a-4903-b4d2-e8a2a7b8c969
+		sourceLineageTag: year
+		summarizeBy: sum
+		sourceColumn: year
+
+		annotation SummarizationSetBy = Automatic
+
+	column month
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 7f042163-8302-45a4-8192-0dea55d3929d
+		sourceLineageTag: month
+		summarizeBy: sum
+		sourceColumn: month
+
+		annotation SummarizationSetBy = Automatic
+
+	column month_name
+		dataType: string
+		sourceProviderType: varchar(10)
+		lineageTag: 898f3d94-2a73-4337-b41f-e68708313f3e
+		sourceLineageTag: month_name
+		summarizeBy: none
+		sourceColumn: month_name
+		sortByColumn: month
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column weekday
+		dataType: string
+		sourceProviderType: varchar(10)
+		lineageTag: b517f16f-182d-444e-9110-67565d5e854f
+		sourceLineageTag: weekday
+		summarizeBy: none
+		sourceColumn: weekday
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_weekend
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		sourceProviderType: bit
+		lineageTag: 3a4021a1-3d91-441e-a8af-80db6fa3825c
+		sourceLineageTag: is_weekend
+		summarizeBy: none
+		sourceColumn: is_weekend
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_date = entity
+		mode: directLake
+		source
+			entityName: dim_date
+			schemaName: gold
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

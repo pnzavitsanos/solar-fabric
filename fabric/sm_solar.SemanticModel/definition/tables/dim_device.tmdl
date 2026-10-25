@@ -1,0 +1,75 @@
+table dim_device
+	lineageTag: a1e105e4-6f8d-40f4-a7d3-9951779299b7
+	sourceLineageTag: [gold].[dim_device]
+
+	column device_hash_id
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: c7fecd8b-628c-4e70-8ee7-2671cd3a2f5e
+		sourceLineageTag: device_hash_id
+		summarizeBy: none
+		sourceColumn: device_hash_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column station_hash_id
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 599bc123-c533-4ddc-84f6-06b36bfed2da
+		sourceLineageTag: station_hash_id
+		summarizeBy: none
+		sourceColumn: station_hash_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column name
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: c238c81f-4068-4517-a1fd-d28d1029f05a
+		sourceLineageTag: name
+		summarizeBy: none
+		sourceColumn: name
+
+		annotation SummarizationSetBy = Automatic
+
+	column device_model
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 1459f8e6-7ded-47be-9f04-7ae65cba4ed5
+		sourceLineageTag: device_model
+		summarizeBy: none
+		sourceColumn: device_model
+
+		annotation SummarizationSetBy = Automatic
+
+	column max_power_kw
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 1913734a-4c16-4f3c-8612-cb59804e6154
+		sourceLineageTag: max_power_kw
+		summarizeBy: sum
+		sourceColumn: max_power_kw
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column vendor
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: fa217c9e-732f-4e6f-9007-07facc251a3a
+		sourceLineageTag: vendor
+		summarizeBy: none
+		sourceColumn: vendor
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_device = entity
+		mode: directLake
+		source
+			entityName: dim_device
+			schemaName: gold
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

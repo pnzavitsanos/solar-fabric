@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "fe0ef33d66196eeaeae8",
+  "displayName": "Monthly Heatmap",
+  "displayOption": "FitToPage",
+  "height": 1080,
+  "width": 1920
+}

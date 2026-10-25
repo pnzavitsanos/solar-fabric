@@ -1,0 +1,67 @@
+table dim_station
+	lineageTag: 26528e28-2192-47d7-86b4-1316f003148e
+	sourceLineageTag: [gold].[dim_station]
+
+	column station_hash_id
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 2c892e52-229b-473c-ba54-6275510d6f33
+		sourceLineageTag: station_hash_id
+		summarizeBy: none
+		sourceColumn: station_hash_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column name
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 0bccdbd9-bb3a-4c20-9c8d-0453303a7557
+		sourceLineageTag: name
+		summarizeBy: none
+		sourceColumn: name
+
+		annotation SummarizationSetBy = Automatic
+
+	column latitude
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 2b5dd3b4-a5b3-4444-8f34-06e945904c77
+		sourceLineageTag: latitude
+		summarizeBy: sum
+		sourceColumn: latitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column plant_age_years
+		dataType: double
+		sourceProviderType: float
+		lineageTag: bc8e94ea-2522-4b4a-9f79-2fd4430d69eb
+		sourceLineageTag: plant_age_years
+		summarizeBy: sum
+		sourceColumn: plant_age_years
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column vendor
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 5f4f1019-3287-40cc-be73-00309835c9e1
+		sourceLineageTag: vendor
+		summarizeBy: none
+		sourceColumn: vendor
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_station = entity
+		mode: directLake
+		source
+			entityName: dim_station
+			schemaName: gold
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,28 @@
+relationship a96d9f60-2483-8574-a234-2996322f497d
+	fromColumn: fact_daily_energy.date_key
+	toColumn: dim_date.date_key
+
+relationship 9fa6570c-1d8b-c6bb-98da-7647d4e69518
+	fromColumn: fact_daily_energy.station_hash_id
+	toColumn: dim_station.station_hash_id
+
+relationship f2383393-6828-781b-567d-03c6f7461f5e
+	fromColumn: fact_daily_energy.device_hash_id
+	toColumn: dim_device.device_hash_id
+
+relationship b7879861-7426-8f99-1280-69ec1891dc10
+	fromColumn: fact_readings.date_key
+	toColumn: dim_date.date_key
+
+relationship efcad111-57f9-4e7c-f197-3732e958f9dd
+	fromColumn: fact_readings.station_hash_id
+	toColumn: dim_station.station_hash_id
+
+relationship 69aaa3f1-f930-91c4-9664-38fa6187657b
+	fromColumn: fact_readings.device_hash_id
+	toColumn: dim_device.device_hash_id
+
+relationship 0eedfa6c-0718-9394-08ec-414309a92cf5
+	fromColumn: fact_readings.canonical_state_id
+	toColumn: dim_state.canonical_state_id
+

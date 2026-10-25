@@ -1,0 +1,95 @@
+table fact_daily_energy
+	lineageTag: d6632df6-e6fe-464b-bfba-f22202915b78
+	sourceLineageTag: [gold].[fact_daily_energy]
+
+	measure 'Energy (kWh)' = SUM(fact_daily_energy[energy_kwh])
+		lineageTag: 33ff2bcc-9a0f-4c40-863a-5216cfb67c58
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Installed kW' = CALCULATE(SUM(dim_device[max_power_kw]), fact_daily_energy)
+		lineageTag: 68fa80bf-561f-4fdc-890f-445ba5414ea1
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Days with data' = DISTINCTCOUNT(fact_daily_energy[date_key])
+		formatString: 0
+		lineageTag: cce999f8-4207-4b06-a6d8-7fd79aeb9ad6
+
+		changedProperty = Name
+
+	measure 'Yield (kWh/kW/day)' = DIVIDE([Energy (kWh)], [Installed kW] * [Days with data])
+		lineageTag: 1a1201b0-8086-4275-9d1f-ad5cf41d1bad
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column date_key
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: fbd08005-e00d-45e5-a4d1-b16321821ad9
+		sourceLineageTag: date_key
+		summarizeBy: none
+		sourceColumn: date_key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column station_hash_id
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 3fb8211e-80ff-4dd4-8e61-3297347558c7
+		sourceLineageTag: station_hash_id
+		summarizeBy: none
+		sourceColumn: station_hash_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column device_hash_id
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: e05972ef-2f2b-4c7b-a0ed-ac3be2bcb2d7
+		sourceLineageTag: device_hash_id
+		summarizeBy: none
+		sourceColumn: device_hash_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column energy_kwh
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 798375ea-7451-4d00-92bb-2bbb43907764
+		sourceLineageTag: energy_kwh
+		summarizeBy: sum
+		sourceColumn: energy_kwh
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition fact_daily_energy = entity
+		mode: directLake
+		source
+			entityName: fact_daily_energy
+			schemaName: gold
+			expressionSource: DatabaseQuery
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+

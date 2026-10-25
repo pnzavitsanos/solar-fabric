@@ -1,0 +1,107 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "1a7b130801e2a9f9a350",
+  "position": {
+    "x": 9.3913043478260878,
+    "y": 0,
+    "z": 0,
+    "height": 447.6521739130435,
+    "width": 624.52173913043487,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "donutChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_state"
+                    }
+                  },
+                  "Property": "state"
+                }
+              },
+              "queryRef": "dim_state.state",
+              "nativeQueryRef": "state",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_readings"
+                    }
+                  },
+                  "Property": "Readings"
+                }
+              },
+              "queryRef": "fact_readings.Readings",
+              "nativeQueryRef": "Readings"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "fact_readings"
+                  }
+                },
+                "Property": "Readings"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "58a562ec2f35d06ae257",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fact_readings"
+              }
+            },
+            "Property": "Readings"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "8e4babb787d3cc6ca467",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_state"
+              }
+            },
+            "Property": "state"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

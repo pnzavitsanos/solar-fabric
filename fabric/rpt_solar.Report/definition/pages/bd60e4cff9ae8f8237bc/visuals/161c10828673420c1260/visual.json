@@ -1,0 +1,106 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "161c10828673420c1260",
+  "position": {
+    "x": 734.08695652173924,
+    "y": 508.69565217391306,
+    "z": 2002,
+    "height": 571.304347826087,
+    "width": 1186.4347826086957,
+    "tabOrder": 2002
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_station"
+                    }
+                  },
+                  "Property": "name"
+                }
+              },
+              "queryRef": "dim_station.name",
+              "nativeQueryRef": "name",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_daily_energy"
+                    }
+                  },
+                  "Property": "Energy (kWh)"
+                }
+              },
+              "queryRef": "fact_daily_energy.Energy (kWh)",
+              "nativeQueryRef": "Energy (kWh)"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "fact_daily_energy"
+                  }
+                },
+                "Property": "Energy (kWh)"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "243b9d4039c8afaf1e17",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_station"
+              }
+            },
+            "Property": "name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "f39800aff534d45ebf10",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fact_daily_energy"
+              }
+            },
+            "Property": "Energy (kWh)"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

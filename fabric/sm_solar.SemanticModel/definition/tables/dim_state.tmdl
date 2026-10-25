@@ -1,0 +1,43 @@
+table dim_state
+	lineageTag: 588ebfa6-9d33-43d7-b124-a7fb58754424
+	sourceLineageTag: [gold].[dim_state]
+
+	column canonical_state_id
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: a46443b3-4d07-4950-a665-2bf3cdddd2d5
+		sourceLineageTag: canonical_state_id
+		summarizeBy: none
+		sourceColumn: canonical_state_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column description
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: a861a216-e00b-43cd-bb0f-7517fb70e53c
+		sourceLineageTag: description
+		summarizeBy: none
+		sourceColumn: description
+
+		annotation SummarizationSetBy = Automatic
+
+	column state
+		dataType: string
+		sourceProviderType: varchar(5)
+		lineageTag: 1b1b96ab-124d-4c5d-ae3a-94ecacb244b1
+		sourceLineageTag: state
+		summarizeBy: none
+		sourceColumn: state
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_state = entity
+		mode: directLake
+		source
+			entityName: dim_state
+			schemaName: gold
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

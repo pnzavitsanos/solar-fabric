@@ -1,0 +1,74 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "fca5547b4fddaad0aef9",
+  "position": {
+    "x": 0,
+    "y": 0,
+    "z": 0,
+    "height": 347.47826086956525,
+    "width": 289.56521739130437,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_daily_energy"
+                    }
+                  },
+                  "Property": "Energy (kWh)"
+                }
+              },
+              "queryRef": "fact_daily_energy.Energy (kWh)",
+              "nativeQueryRef": "Energy (kWh)"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "fact_daily_energy"
+                  }
+                },
+                "Property": "Energy (kWh)"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "05f1e9961828535e6ec4",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fact_daily_energy"
+              }
+            },
+            "Property": "Energy (kWh)"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}
