@@ -18,6 +18,8 @@ This project takes raw CSV exports from two solar-inverter portals (**Huawei Fus
 
 > 📊 **Interactive presentation:** [open it in your browser](https://pnzavitsanos.github.io/solar-fabric/presentation/solar-presentation.html), with a vendor filter, a plant picker and clickable charts. Or [download it](https://github.com/pnzavitsanos/solar-fabric/raw/main/presentation/solar-presentation.html): it is one file that works offline. It lives in [`presentation/`](presentation/).
 
+> 📚 **Data source:** the [SolarMagix dataset](https://data.mendeley.com/datasets/4zgsckxpdy) on Mendeley Data, described in A. Daskalov, M. Dimitrova, T. Atanasovska, P. Lameski, B. Risteska Stojkoska and E. Zdravevski, *"SolarMagix: An integrated multi-station photovoltaic and weather dataset for solar energy forecasting, fault detection, and anomaly analysis"*, Data in Brief 67 (2026) 112830, [doi:10.1016/j.dib.2026.112830](https://doi.org/10.1016/j.dib.2026.112830). The data comes from photovoltaic stations in North Macedonia. It is not included in this repository; download it from Mendeley and see the dataset page for its licence.
+
 | | |
 |---|---|
 | **Energy produced** | 2,201,535 kWh (2.20 GWh) |
