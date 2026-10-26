@@ -1,0 +1,4 @@
+# Keep the generated presentation out of GitHub's language bar,
+# so it reflects the pipeline code (notebooks and T-SQL).
+presentation/** linguist-documentation
+docs/** linguist-documentation
