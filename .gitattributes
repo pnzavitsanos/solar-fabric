@@ -2,3 +2,6 @@
 # so it reflects the pipeline code (notebooks and T-SQL).
 presentation/** linguist-documentation
 docs/** linguist-documentation
+
+# Report and model files are written by Fabric's Git sync, not by hand.
+fabric/rpt_solar.Report/** linguist-generated
