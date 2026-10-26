@@ -16,7 +16,7 @@
 
 This project takes raw CSV exports from two solar-inverter portals (**Huawei FusionSolar** and **Solis**), and turns them into a tested star schema and an interactive report. It started as a local pandas project and was rebuilt end to end in Microsoft Fabric, with every row count checked against the original.
 
-> 📊 **Interactive presentation:** [open it in your browser](https://pnzavitsanos.github.io/solar-fabric/), with a vendor filter, a plant picker and clickable charts. The file itself is [`docs/solar-presentation.html`](docs/solar-presentation.html) and also works offline.
+> 📊 **Interactive presentation:** [open it in your browser](https://pnzavitsanos.github.io/solar-fabric/presentation/solar-presentation.html), with a vendor filter, a plant picker and clickable charts. Or [download it](https://github.com/pnzavitsanos/solar-fabric/raw/main/presentation/solar-presentation.html): it is one file that works offline. It lives in [`presentation/`](presentation/).
 
 | | |
 |---|---|
@@ -581,7 +581,7 @@ The report `rpt_solar` has three pages: **Energy** (cards, daily energy, energy 
 
 ## Results
 
-All charts below come from the interactive presentation in [`docs/solar-presentation.html`](docs/solar-presentation.html), built from the gold tables.
+All charts below come from the [interactive presentation](https://pnzavitsanos.github.io/solar-fabric/presentation/solar-presentation.html), built from the gold tables.
 
 ![Seven solar plants, one data platform](docs/img/slide-cover.png)
 
@@ -690,8 +690,9 @@ Every layer was checked against the original local pandas pipeline.
 ```
 .
 ├── README.md                     ← this file
+├── presentation/
+│   └── solar-presentation.html   ← interactive presentation (works offline)
 ├── docs/
-│   ├── solar-presentation.html   ← interactive presentation (works offline)
 │   └── img/                      ← screenshots and chart images used here
 └── fabric/                       ← synced by Fabric Git integration (do not edit by hand)
     ├── lh_solar.Lakehouse/
