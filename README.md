@@ -16,7 +16,7 @@
 
 This project takes raw CSV exports from two solar-inverter portals (**Huawei FusionSolar** and **Solis**), and turns them into a tested star schema and an interactive report. It started as a local pandas project and was rebuilt end to end in Microsoft Fabric, with every row count checked against the original.
 
-> 📊 **Interactive presentation:** [`docs/solar-presentation.html`](docs/solar-presentation.html). Download it and open it in any browser. It works offline, with a vendor filter and clickable charts.
+> 📊 **Interactive presentation:** [open it in your browser](https://pnzavitsanos.github.io/solar-fabric/), with a vendor filter, a plant picker and clickable charts. The file itself is [`docs/solar-presentation.html`](docs/solar-presentation.html) and also works offline.
 
 | | |
 |---|---|
