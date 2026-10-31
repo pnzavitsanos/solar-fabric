@@ -17,6 +17,8 @@
 This project takes raw CSV exports from two solar-inverter portals (**Huawei FusionSolar** and **Solis**), and turns them into a tested star schema and an interactive report. It started as a local pandas project and was rebuilt end to end in Microsoft Fabric, with every row count checked against the original.
 
 > 📊 **Interactive presentation:** [open it in your browser](https://pnzavitsanos.github.io/solar-fabric/presentation/solar-presentation.html), with a vendor filter, a plant picker and clickable charts. Or [download it](https://github.com/pnzavitsanos/solar-fabric/raw/main/presentation/solar-presentation.html): it is one file that works offline. It lives in [`presentation/`](presentation/).
+>
+> 🌐 **Effort metric:** a [3D effort sphere](https://pnzavitsanos.github.io/solar-fabric/presentation/effort-metric.html) that places every attribute by how much work it took to create, d = l + Σ c · m.
 
 > 📚 **Data source:** the [SolarMagix dataset](https://data.mendeley.com/datasets/4zgsckxpdy) on Mendeley Data, described in A. Daskalov, M. Dimitrova, T. Atanasovska, P. Lameski, B. Risteska Stojkoska and E. Zdravevski, *"SolarMagix: An integrated multi-station photovoltaic and weather dataset for solar energy forecasting, fault detection, and anomaly analysis"*, Data in Brief 67 (2026) 112830, [doi:10.1016/j.dib.2026.112830](https://doi.org/10.1016/j.dib.2026.112830). The data comes from photovoltaic stations in North Macedonia. It is not included in this repository; download it from Mendeley and see the dataset page for its licence.
 
@@ -693,7 +695,8 @@ Every layer was checked against the original local pandas pipeline.
 .
 ├── README.md                     ← this file
 ├── presentation/
-│   └── solar-presentation.html   ← interactive presentation (works offline)
+│   ├── solar-presentation.html   ← interactive presentation (works offline)
+│   └── effort-metric.html        ← 3D effort sphere of every attribute (works offline)
 ├── docs/
 │   └── img/                      ← screenshots and chart images used here
 └── fabric/                       ← synced by Fabric Git integration (do not edit by hand)
